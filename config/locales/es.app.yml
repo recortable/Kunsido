@@ -1,0 +1,21 @@
+
+es:
+  edicion: 'edición'
+  contenido:  'contenido'
+
+  permission:
+    level:
+      read: 'Suscriptor'
+      update: 'Participante'
+      manage: 'Administrador'
+
+
+  version:
+    action:
+      create: 'añadido'
+      update: 'modificado'
+      destroy: 'borrado'
+    model:
+      Topic: 'el tema de discusón'
+      Group: 'el grupo'
+      User: 'el/la participante'

@@ -3,12 +3,13 @@
 <table>
   <% versions.each do |version| %>
   <tr>
-    <td><%= version.item_id %></td>
-    <td><%= version.item_type %></td>
+    <td><%= time_ago_in_words version.created_at %></td>
     <td><%= version.event %></td>
-    <td><%= version.whodunnit %></td>
+    <td><%= version.item_type %>(<%= version.item_id %>)</td>
+    <td><%= version.resource %></td>
+    <td><%= version.group %>(<%= version.group_id %>)</td>
+    <td><%= version.user %>[<%= version.whodunnit %>]</td>
     <td><%= version.object %></td>
-    <td><%= version.created_at %></td>
   </tr>
   <% end %>
 </table>

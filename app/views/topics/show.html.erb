@@ -1,0 +1,9 @@
+<% div_for topic do %>
+    <%= title topic.name %>
+    <div class="body">
+      <%= render_body topic %>
+    </div>
+    <div class="actions">
+      <%= link_to 'Editar', edit_topic_path(topic) %>
+    </div>
+<% end %>

@@ -1,0 +1,28 @@
+es:
+  simple_form:
+    "yes": 'Sí'
+    "no": 'No'
+    required:
+      text: 'Campo obligatorio'
+      mark: '*'
+      # You can uncomment the line below if you need to overwrite the whole required html.
+      # When using html, text and mark won't be used.
+      # html: '<abbr title="required">*</abbr>'
+    error_notification:
+      default_message: "Hay errores en los datos introducidos:"
+    # Labels and hints examples
+    labels:
+      name: 'Nombre'
+      topic:
+        body: 'Tema que se va a discutir'
+      group:
+        body: 'Descripción del grupo'
+
+
+    hints:
+      name: '300 caracteres como máximo'
+  helpers:
+    submit:
+      update: 'Actualizar'
+      group:
+        create: 'Crear grupo'

@@ -9,6 +9,21 @@
   <script src="/javascripts/less-1.0.40.min.js" type="text/javascript"></script>
 </head>
 <body>
+<div id="app">
+  <%= link_to 'Decide', root_path %>
+
+  <div class="session">
+    <% if current_user %>
+        <%= link_to "Eres #{current_user.name}" %>
+        <%= link_to 'Tu decides', root_path %>
+        <%= link_to 'Cerrar sesión', logout_path %>
+        <% if current_user.admin? %>
+        <%= link_to 'Versiones', admin_versions_path %>
+        <% end %>
+    <% else %>
+    <% end %>
+  </div>
+</div>
 
 <div id="page">
   <%= content_tag :div, flash[:notice], :id => "flash_notice" %>

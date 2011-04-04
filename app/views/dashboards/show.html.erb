@@ -1,0 +1,17 @@
+<%= title 'Tu decides' %>
+
+<div class="container">
+  <div class="center">
+    <h2>Tus acciones</h2>
+    <%= render current_user.activity %>
+  </div>
+  <div class="right">
+    <h2>Tus grupos</h2>
+    <ul>
+      <%= render current_user.groups %>
+    </ul>
+    <div class="actions">
+      <%= link_to 'Crear grupo', new_group_path %>
+    </div>
+  </div>
+</div>

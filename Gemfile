@@ -10,6 +10,7 @@ gem 'carrierwave'
 gem 'fog'
 gem 'easy_http_cache'
 gem 'paper_trail', '~> 2'
+gem 'rdiscount', :require => 'rdiscount'
 
 
 gem 'sqlite3-ruby', :require => 'sqlite3'

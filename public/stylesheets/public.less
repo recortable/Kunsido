@@ -19,17 +19,27 @@ html{color:#000;background:#FFF;}body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pr
 @c-cyan:      #2aa198;
 @c-green:     #859900;
 
-@font-text: Georgia,'Time New Romans',serif;
-@font-header: helvetica,arial,sans-serif;
-@font-fields: helvetica,arial,sans-serif;
+@c-graydk: #2C2C2C;
+
+@font-text: "HelveticaNeue",Helvetica,Arial; /*Georgia,'Time New Romans',serif;*/
+@font-header: "HelveticaNeue",Helvetica,Arial; /*helvetica,arial,sans-serif;*/
+@font-fields: "HelveticaNeue",Helvetica,Arial;
 
 /** ELEMENTS **/
-html {background-color:#F0F0F0; font-family: @font-text;}
-h1, h2, h3 {font-family: @font-header; color: black; font-weight: 700; text-shadow: 1px 1px 0 #CCCCCC;}
-h1 {font-size: 40px; line-height: 46px;}
-p {font-size: 16px; line-height: 23px; margin: 1em 0;}
+html {color: @c-graydk; background-color:#F0F0F0; font-family: @font-text;}
+h1, h2, h3 {font-family: @font-header; font-weight: 700; }
+h1 {font-size: 40px; line-height: 46px; text-shadow: 1px 1px 0 #CCCCCC;}
+h2 {font-size: 24px; margin-top: 1em;}
+p {font-size: 15px; line-height: 23px; margin: 1em 0; text-shadow: 0 1px 0 #F7F8F9;}
 
-#page {max-width:1024px; margin: 2em auto;}
+/** LAYOUT **/
+#page {max-width:1024px; margin: 4em auto;}
+.container {width:100%;overflow:hidden;}
+.container .center {float: left; width: 75%;}
+.container .right {float: left; width: 24%;}
+
+/** BROWSER **/
+
 
 /** TABLES **/
 table {width: 100%; margin: 10px 0;}
@@ -41,4 +51,34 @@ form div.input {display: block; width: 100%; margin: 10px 0;}
 form div.input label {display: block; font-weight:bold;}
 form div.input.boolean label {display:inline;}
 form input[type=text], form textarea {width: 400px; padding: 2px; font-family: @font-fields;}
+form span.hint {display: block; color: gray; margin: 2px 5px;}
 
+/** APP **/
+#app {position:fixed;top:0;left:0;width:100%;overflow:hidden; padding: 0.5em 0; background-color: @c-graydk;}
+#app a {display:block;float:left;color: white;margin-left:1em; text-decoration:none;}
+
+#app .session {float: right; margin-right:1em;}
+
+/** BUTTONS **/
+.button-clean-gray {
+  background: #eee;
+  background: -moz-linear-gradient(top, #eee 0%, #ccc 100%);
+  background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#eee), to(#ccc));
+  border: 1px solid #ccc;
+  border-bottom: 1px solid #bbb;
+  -moz-border-radius: 3px;
+  -webkit-border-radius: 3px;
+  border-radius: 3px;
+  color: #555;
+  font-family: "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Geneva, Verdana, sans-serif;
+  font-size: 11px;
+  font-weight: normal;
+  line-height: 1;
+  padding: 6px 1em;
+  text-align: center;
+  text-shadow: 0 1px 0 #eee;
+  margin-right: 0.5em;
+}
+form input[type=submit] {.button-clean-gray;}
+div.actions {width: 100%; overflow: hidden; margin: 10px 0;}
+div.actions a {.button-clean-gray; float: left; text-decoration:none;}

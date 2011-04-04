@@ -7,6 +7,10 @@ class CreateVersions < ActiveRecord::Migration
       t.string   :whodunnit
       t.text     :object
       t.datetime :created_at
+      t.string   :resource
+      t.string   :user
+      t.string   :group
+      t.integer  :group_id
     end
     add_index :versions, [:item_type, :item_id]
   end

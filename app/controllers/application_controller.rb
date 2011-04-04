@@ -9,4 +9,14 @@ class ApplicationController < ActionController::Base
   def self.edit_require_user
     before_filter :require_user, :except => [:index, :show]
   end
+
+  def user_for_paper_trail
+    current_user ? current_user.id : nil
+  end
+
+
+  def complete_params(params)
+    params[:body_mime] = 'markdown' if params[:body_mime].blank?
+    params[:user_id] = current_user.id
+  end
 end

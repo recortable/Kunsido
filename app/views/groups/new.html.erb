@@ -1,0 +1,9 @@
+<%= title 'Crear un grupo' %>
+
+<p>Un grupo te permite compartir temas de discusión o reuniones fácilmente.</p>
+
+<%= simple_form_for group do |form| %>
+    <%= form.input :name %>
+    <%= form.input :body %>
+    <%= form.submit %>
+<% end %>

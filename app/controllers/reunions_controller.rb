@@ -1,0 +1,2 @@
+class ReunionsController < ApplicationController
+end

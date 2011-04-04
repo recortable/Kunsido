@@ -10,12 +10,61 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110404140821) do
+ActiveRecord::Schema.define(:version => 20110404170319) do
+
+  create_table "authorizations", :force => true do |t|
+    t.string   "provider"
+    t.string   "uid"
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "groups", :force => true do |t|
+    t.integer  "user_id",    :null => false
+    t.string   "name",       :null => false
+    t.string   "body_mime"
+    t.text     "body"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "memberships", :force => true do |t|
+    t.integer  "group_id",   :null => false
+    t.integer  "user_id",    :null => false
+    t.integer  "member_id",  :null => false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "reunions", :force => true do |t|
+    t.integer  "user_id",     :null => false
+    t.integer  "group_id"
+    t.string   "name",        :null => false
+    t.string   "body_mime"
+    t.text     "body"
+    t.datetime "starting_at"
+    t.datetime "ending_at"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "topics", :force => true do |t|
+    t.integer  "user_id",    :null => false
+    t.integer  "reunion_id"
+    t.integer  "group_id",   :null => false
+    t.string   "name",       :null => false
+    t.string   "body_mime"
+    t.text     "body"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "users", :force => true do |t|
-    t.string   "name",          :limit => 100
-    t.string   "email",         :limit => 300
-    t.boolean  "admin",                        :default => false
+    t.string   "name",                             :null => false
+    t.string   "email"
+    t.boolean  "admin",         :default => false
+    t.boolean  "invited",       :default => false
     t.datetime "last_login_at"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -28,6 +77,10 @@ ActiveRecord::Schema.define(:version => 20110404140821) do
     t.string   "whodunnit"
     t.text     "object"
     t.datetime "created_at"
+    t.string   "resource"
+    t.string   "user"
+    t.string   "group"
+    t.integer  "group_id"
   end
 
   add_index "versions", ["item_type", "item_id"], :name => "index_versions_on_item_type_and_item_id"

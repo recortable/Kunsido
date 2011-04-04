@@ -1,0 +1,34 @@
+<h2>Grupo</h2>
+<%= title "#{group.name}" %>
+
+<div class="container">
+  <div class="center">
+    <h2>Acuerdos de este grupo</h2>
+    <p>Este grupo no ha tomado ningún acuerdo todavía.</p>
+    <h2>Actividad en este grupo</h2>
+  </div>
+  <div class="right browser">
+    <h2>Reuniones</h2>
+    <ul>
+
+    </ul>
+    <div class="actions">
+      <%= link_to 'Añadir reunión' %>
+    </div>
+    <h2>Temas de discusión</h2>
+    <p>Estos son los temas de discusión que no están incluidos en ninguna reunión</p>
+    <ul>
+
+    </ul>
+    <div class="actions">
+      <%= link_to 'Añadir reunión' %>
+    </div>
+
+    <h2>Participantes</h2>
+    <p><b><%= group.name %></b> tiene <%= group.memberships.count %> participantes.</p>
+    <div class="actions">
+      <%= link_to 'Añadir participante', new_group_membership_path(group) %>
+    </div>
+  </div>
+</div>
+
