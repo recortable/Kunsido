@@ -1,0 +1,28 @@
+<div class="head">
+  <h3><%= link_to group.name, group %></h3>
+  <%= title reunion.name %>
+</div>
+
+<div class="container">
+  <div class="left browser">
+    <h2>Reunión</h2>
+    <ul>
+      <%= render reunion.topics %>
+    </ul>
+
+  </div>
+  <div class="center">
+    <h2>Añadir un nuevo tema a la reunión</h2>
+    <%= render :partial => 'topics/form',
+               :locals => {:topic => group.topics.build(:reunion => reunion)} %>
+    <% reunion.topics.each do |topic| %>
+        <%= div_for topic do %>
+            <h2><%= link_to topic.name, [group, topic] %></h2>
+            <%= render_body topic %>
+            <div class="actions">
+              <%= link_to 'Editar', edit_group_topic_path(group, topic) %>
+            </div>
+        <% end %>
+    <% end %>
+  </div>
+</div>

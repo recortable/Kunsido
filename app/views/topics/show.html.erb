@@ -5,9 +5,13 @@
 
 <div class="container">
   <div class="left browser">
-    <h2>Reunión</h2>
     <% if topic.reunion %>
+        <h2><%= link_to topic.reunion.name, [group, topic.reunion] %></h2>
+        <ul>
+          <%= render topic.reunion.topics %>
+        </ul>
     <% else %>
+        <h2>Reunión</h2>
         <p class="info">Este asunto de discusión no está en ninguna reunión</p>
     <% end %>
   </div>
@@ -33,6 +37,10 @@
           <%= render topic.comments %>
         </div>
     <% end %>
+    <h2>Propuestas para este tema</h2>
+    <p>De momento no existe ninguna propuesta.</p>
+    <h2>Acuerdos alcanzados en este tema</h2>
+    <p>De momento no existe ningún acuerdo sobre este tema.</p>
   </div>
   <div class="right browser">
   </div>

@@ -12,6 +12,9 @@ class VersionsController < ApplicationController
           comment = Comment.find version.item_id
           topic = comment.topic
           redirect_to group_topic_path(topic.group, topic, :anchor => "h:c-#{comment.id}")
+        when 'Reunion'
+          reunion = Reunion.find version.item_id
+          redirect_to [reunion.group, reunion]
         else
           render :text => version.item_type
       end

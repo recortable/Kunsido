@@ -1,6 +1,8 @@
 <div class="head">
   <h3><%= link_to group.name, group %></h3>
   <%= title 'Añadir un tema de discusión' %>
+  <p>Este tema de discusión <b>no</b> está asociado a ninguna reunión.<br/>
+  Generalmente es más conveniente agrupar los temas en reuniones.</p>
   <%= render 'form' %>
 </div>
 

@@ -1,4 +1,8 @@
 <%= div_for version do %>
-    Has <%= I18n.t "version.action.#{version.event}" %> <%= I18n.t "version.model.#{version.item_type}" %>
+    <% user = User.find version.whodunnit %>
+    <%= image_tag avatar_url(user, 32) %>
+    Hace <%= time_ago_in_words version.created_at %> <%= user.name %><br/>
+    ha <%= I18n.t "version.action.#{version.event}" %>
+    <%= I18n.t "version.model.#{version.item_type}" %>
     '<%= link_to_if version.event != 'destroy', version.resource, version %>'
 <% end %>

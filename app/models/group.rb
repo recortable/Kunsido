@@ -4,7 +4,13 @@ class Group < ActiveRecord::Base
   belongs_to :user
   has_many :reunions
   has_many :memberships
-  has_many :topics, :conditions => {:reunion_id => nil}
+  has_many :topics do
+    def orphan
+      self.where(:reunion_id => nil)
+    end
+  end
+  has_many :activity, :class_name => 'Version', :order => 'id DESC'
+
 
   validates :name, :presence => true
   validates :user_id, :presence => true

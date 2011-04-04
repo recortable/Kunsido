@@ -34,3 +34,5 @@ es:
         create: 'Añadir tema de discusión'
       comment:
         create: 'Comentar'
+      reunion:
+        create: 'Añadir reuinión'

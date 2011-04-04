@@ -1,4 +1,5 @@
 <%= simple_form_for [group, topic] do |form| %>
+    <%= form.input :reunion_id, :as => :hidden %>
     <%= form.input :name %>
     <%= form.input :body %>
     <%= form.submit %>

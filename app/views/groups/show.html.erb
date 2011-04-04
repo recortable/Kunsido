@@ -1,22 +1,25 @@
 <div class="head">
-    <h3>Grupo</h3>
-    <%= title "#{group.name}" %>
+  <h3>Grupo</h3>
+  <%= title "#{group.name}" %>
 </div>
 
 <div class="container">
   <div class="left browser">
     <h2>Reuniones</h2>
+    <p class="info">Reuniones abiertas. <%= link_to 'Ver todas' %></p>
     <ul>
-
+      <% group.reunions.each do |reunion| %>
+          <li><%= link_to reunion.name, [group, reunion] %></li>
+      <% end %>
     </ul>
     <div class="actions">
-      <%= link_to 'Añadir reunión' %>
+      <%= link_to 'Añadir reunión', new_group_reunion_path(group) %>
     </div>
     <h2>Temas de discusión</h2>
 
-    <p class="info">Estos son los temas de discusión que no están incluidos en ninguna reunión</p>
+    <p class="info">Se están mostrando los temas de discusión abiertos. <%= link_to 'Ver todos' %></p>
     <ul>
-      <%= render group.topics %>
+      <%= render group.topics.orphan %>
     </ul>
     <div class="actions">
       <%= link_to 'Añadir tema de discusión', new_group_topic_path(group) %>
@@ -24,8 +27,7 @@
 
     <h2>Participantes</h2>
 
-    <p>
-      <b><%= group.name %></b> tiene <%= group.memberships.count %> participantes.
+    <p><b><%= group.name %></b> tiene <%= group.memberships.count %> participantes.
       <%= link_to 'Ver todxs', [group, :memberships] %>
     </p>
 
@@ -35,11 +37,12 @@
   </div>
 
   <div class="center">
-    <h2>Acuerdos de este grupo</h2>
+    <h2>Acuerdos alcanzados por este grupo</h2>
 
     <p>Este grupo no ha tomado ningún acuerdo todavía.</p>
 
     <h2>Actividad en este grupo</h2>
+    <%= render group.activity %>
   </div>
 </div>
 
