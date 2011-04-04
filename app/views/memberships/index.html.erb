@@ -1,0 +1,7 @@
+<h2><%= link_to "Grupo '#{group.name}'", group %></h2>
+<%= title "Participantes" %>
+<div class="actions">
+  <%= link_to 'Añadir participante', new_group_membership_path(group) %>
+</div>
+
+<%= render memberships %>

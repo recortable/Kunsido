@@ -1,0 +1,11 @@
+<%= title 'El elemento ha sido borrado' %>
+
+<% @versions.each do |version| %>
+    <%= div_for version do %>
+        <%= version.user %> ha <%= I18n.t "version.action.#{version.event}" %>
+        <%= I18n.t "version.model.#{version.item_type}" %>
+        '<%= link_to_if version.event != 'destroy', version.resource, version %>'
+        <% reify = version.reify %>
+        <%= render_body version.reify if reify %>
+    <% end %>
+<% end %>

@@ -18,4 +18,6 @@ es:
     model:
       Topic: 'el tema de discusón'
       Group: 'el grupo'
-      User: 'el/la participante'
+      User: 'el usuario'
+      Membership: 'el/la participante'
+      Comment: 'un comentario en'

@@ -7,6 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <link rel="stylesheet/less" type="text/css" href="/stylesheets/public.less">
   <script src="/javascripts/less-1.0.40.min.js" type="text/javascript"></script>
+  <%= csrf_meta_tag %>
 </head>
 <body>
 <div id="app">
@@ -18,15 +19,19 @@
         <%= link_to 'Tu decides', root_path %>
         <%= link_to 'Cerrar sesión', logout_path %>
         <% if current_user.admin? %>
-        <%= link_to 'Versiones', admin_versions_path %>
+            <%= link_to 'Versiones', admin_versions_path %>
+            <%= link_to 'Participantes', admin_users_path %>
         <% end %>
     <% else %>
     <% end %>
   </div>
 </div>
 
+
 <div id="page">
-  <%= content_tag :div, flash[:notice], :id => "flash_notice" %>
+  <div class="head">
+    <%= content_tag :div, flash[:notice], :id => "flash_notice" %>
+  </div>
   <%= yield %>
 </div>
 

@@ -14,9 +14,13 @@ class ApplicationController < ActionController::Base
     current_user ? current_user.id : nil
   end
 
-
   def complete_params(params)
     params[:body_mime] = 'markdown' if params[:body_mime].blank?
     params[:user_id] = current_user.id
   end
+
+  def load_group
+    Group.find params[:group_id]
+  end
+
 end

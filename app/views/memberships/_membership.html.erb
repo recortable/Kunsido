@@ -1,0 +1,5 @@
+<%= div_for membership do %>
+    <%= image_tag avatar_url(membership.member, 32) %>
+    <%= link_to membership.member.name %>,
+    añadidx al grupo hace <%= time_ago_in_words membership.created_at %>
+<% end %>

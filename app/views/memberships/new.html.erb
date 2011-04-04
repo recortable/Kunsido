@@ -1,0 +1,6 @@
+<%= title "Añadir participante a '#{group.name}'" %>
+
+<%= simple_form_for [group, membership] do |form| %>
+    <%= form.input :member_email %>
+    <%= form.submit %>
+<% end %>

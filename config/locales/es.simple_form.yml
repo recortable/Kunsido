@@ -17,6 +17,8 @@ es:
         body: 'Tema que se va a discutir'
       group:
         body: 'Descripción del grupo'
+      comment:
+        body: 'Tu opinión'
 
 
     hints:
@@ -26,3 +28,9 @@ es:
       update: 'Actualizar'
       group:
         create: 'Crear grupo'
+      membership:
+        create: 'Añadir participante'
+      topic:
+        create: 'Añadir tema de discusión'
+      comment:
+        create: 'Comentar'

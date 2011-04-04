@@ -1,3 +1,5 @@
+# encoding: utf-8
+
 class GroupsController < ApplicationController
   respond_to :html
   before_filter :require_user

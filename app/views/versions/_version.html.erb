@@ -1,4 +1,4 @@
 <%= div_for version do %>
     Has <%= I18n.t "version.action.#{version.event}" %> <%= I18n.t "version.model.#{version.item_type}" %>
-    '<%= version.resource %>'
+    '<%= link_to_if version.event != 'destroy', version.resource, version %>'
 <% end %>

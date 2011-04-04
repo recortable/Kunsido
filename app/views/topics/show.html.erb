@@ -1,9 +1,39 @@
-<% div_for topic do %>
-    <%= title topic.name %>
-    <div class="body">
-      <%= render_body topic %>
-    </div>
-    <div class="actions">
-      <%= link_to 'Editar', edit_topic_path(topic) %>
-    </div>
-<% end %>
+<div class="head">
+  <h3><%= link_to group.name, group %></h3>
+  <%= title topic.name %>
+</div>
+
+<div class="container">
+  <div class="left browser">
+    <h2>Reunión</h2>
+    <% if topic.reunion %>
+    <% else %>
+        <p class="info">Este asunto de discusión no está en ninguna reunión</p>
+    <% end %>
+  </div>
+  <div class="center-small">
+    <% div_for topic do %>
+        <h2>Tema de discusión</h2>
+
+        <div class="body">
+          <%= render_body topic %>
+        </div>
+        <div class="actions">
+          <%= link_to 'Editar', edit_group_topic_path(group, topic) %>
+        </div>
+        <div class="inline">
+          <%= simple_form_for [topic.comments.build(:group => group)] do |form| %>
+              <%= form.input :group_id, :as => :hidden %>
+              <%= form.input :resource_id, :as => :hidden %>
+              <%= form.input :resource_type, :as => :hidden %>
+              <%= form.input :body %>
+              <%= form.submit %>
+          <% end %>
+          <h4>Han opinado sobre este tema:</h4>
+          <%= render topic.comments %>
+        </div>
+    <% end %>
+  </div>
+  <div class="right browser">
+  </div>
+</div>

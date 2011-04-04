@@ -10,12 +10,23 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110404170319) do
+ActiveRecord::Schema.define(:version => 20110404201819) do
 
   create_table "authorizations", :force => true do |t|
     t.string   "provider"
     t.string   "uid"
     t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "comments", :force => true do |t|
+    t.integer  "user_id",       :null => false
+    t.integer  "group_id",      :null => false
+    t.integer  "resource_id"
+    t.string   "resource_type"
+    t.string   "body_mime"
+    t.text     "body"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
