@@ -1,0 +1,15 @@
+<%= title 'Participantes' %>
+
+<div class="actions">
+  <%= link_to 'Crear', new_admin_user_path %>
+</div>
+
+<table>
+    <% users.each do |user| %>
+      <tr>
+        <td><%= user.name %></td>
+        <td><%= user.email %></td>
+        <td><%= user.admin? %></td>
+      </tr>
+    <% end %>
+</table>

@@ -1,0 +1,13 @@
+<%= title 'Bienvenidx' %>
+
+<p><b>Decide</b> es una aplicación web que tiene un solo objetivo: ayudar a grupos de personas a tomar decisiones.</p>
+
+<p>Si deseas utilizar esta herramienta, escribe aquí tu email y te enviaremos una invitación:</p>
+
+<%= form_tag invitations_path do %>
+    <div class="input">
+      <label>Email:</label>
+      <%= text_field_tag :email %>
+    </div>
+    <%= submit_tag 'Enviar invitación' %>
+<% end %>

@@ -1,0 +1,14 @@
+<%= title 'Versiones' %>
+
+<table>
+  <% versions.each do |version| %>
+  <tr>
+    <td><%= version.item_id %></td>
+    <td><%= version.item_type %></td>
+    <td><%= version.event %></td>
+    <td><%= version.whodunnit %></td>
+    <td><%= version.object %></td>
+    <td><%= version.created_at %></td>
+  </tr>
+  <% end %>
+</table>
